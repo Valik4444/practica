@@ -4,7 +4,6 @@
 
 ### Commands
 
-test
 
 man
 
