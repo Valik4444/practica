@@ -4,6 +4,8 @@
 
 ### Commands
 
+test
+
 man
 
 ls
@@ -24,5 +26,6 @@ netstat
 ifconfig
 
 locate
+id
 pwd
 grep
