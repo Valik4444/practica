@@ -1,11 +1,5 @@
-# Practica
 
-## Linux Intro
-
-### Commands
-
-
-man
+**man***nume_comandă*
 
 ls
 cd
