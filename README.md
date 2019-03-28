@@ -1,12 +1,12 @@
 
-**man** *nume_comandă*  (***manual***) - listează manualul pentru comanda primită ca parametru. ***
+**man** *nume_comandă*  (***manual***) - listează manualul pentru comanda primită ca parametru.***
 
-**ls** */some/directory* (***list***) - listează conţinutul directorului primit ca parametru.
-**cd** */another/location* (***change directory***) - schimbă directorul curent în directorul primit ca paramentru.
-**mv** *fişier_sursă fişier_destinaţie* (***move***) - mută un fişier sau director în altă locaţie dar în acelaşi timp poate să şi redenumească.
-**mkdir** *nume_director * (***make directory***) - crează un director cu numele indicat.
-**rmdir** *nume_director* (***remove directory***) - şterge directorul indicat numai dacă este gol.
-**touch** *nume_fişier* - crează un fişier text cu numele indicat.
+**ls** */some/directory* (***list***) - listează conţinutul directorului primit ca parametru.  
+**cd** */another/location* (***change directory***) - schimbă directorul curent în directorul primit ca paramentru.  
+**mv** *fişier_sursă fişier_destinaţie* (***move***) - mută un fişier sau director în altă locaţie dar în acelaşi timp poate să şi redenumească.  
+**mkdir** *nume_director * (***make directory***) - crează un director cu numele indicat.  
+**rmdir** *nume_director* (***remove directory***) - şterge directorul indicat numai dacă este gol.  
+**touch** *nume_fişier* - crează un fişier text cu numele indicat.  
 **rm** *fişier* (***remove***) - şterge un fişier sau director. ***
 
 **clear** - clear the terminal screen. ***
