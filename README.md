@@ -24,10 +24,10 @@
 **ifconfig** - afiseaza configuratia interfetei de retea (afiseaza si IP-urile alocate). 
 ***
 
-**locate** *nume* - localizeaza fisiere (ex: locate mysql).  
-**id** *root* - pentru a confirma identitatea de user:root. ne va arăta ca răspuns: ***uid=0(root)gid=0(root)groups=0(root)***.  
-**id** *-g user* - pentru a confirma identitatea de user a unui grup: ***va afișa id-ul din grup***.  
-**id** *-gn user* - pentru a confirma identitatea de user a unui grup: ***va afișa numele grupei***.  
+**locate** *nume* - localizeaza fisiere (ex: *locate mysql*).  
+**id** *root* - pentru a confirma identitatea de user:root. ne va arăta ca răspuns: *uid=0(root)gid=0(root)groups=0(root)*.  
+**id** *-g user* - pentru a confirma identitatea de user a unui grup: *va afișa id-ul din grup*.  
+**id** *-gn user* - pentru a confirma identitatea de user a unui grup: *va afișa numele grupei*.  
 **pwd** (***print working directory***) - afiseaza directorul curent (in care ne aflam).  
 **grep** - Afișeaza o linie care intrunește o calitate. 
 ***
