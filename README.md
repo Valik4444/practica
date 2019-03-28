@@ -1,4 +1,4 @@
-
+***
 **man** *nume_comandă*  (***manual***) - listează manualul pentru comanda primită ca parametru.
 ***
 
@@ -25,7 +25,7 @@
 ***
 
 **locate** *nume* - localizeaza fisiere (ex: locate mysql).  
-**id** *root* - pentru a confirma identitatea de user:root. ne va arăta ca răspuns: ***uid=0(root) gid=0(root) groups=0(root)***.  
+**id** *root* - pentru a confirma identitatea de user:root. ne va arăta ca răspuns: ***uid=0(root)gid=0(root)groups=0(root)***.  
 **id** *-g user* - pentru a confirma identitatea de user a unui grup: ***va afișa id-ul din grup***.  
 **id** *-gn user* - pentru a confirma identitatea de user a unui grup: ***va afișa numele grupei***.  
 **pwd** (***print working directory***) - afiseaza directorul curent (in care ne aflam).  
