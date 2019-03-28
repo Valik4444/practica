@@ -31,3 +31,8 @@
 **pwd** (***print working directory***) - afiseaza directorul curent (in care ne aflam).  
 **grep** - Afișeaza o linie care intrunește o calitate. 
 ***
+
+#Aliases  
+*Are like custom shortcuts used to represent a command (or set of commands) executed with or without custom options.*  
+Pentru a crea un alias folosim sintaxa: *alias shortName="your custom command here"*  
+Aliasele care mi-ar prinde bine: ***ll***, ...
