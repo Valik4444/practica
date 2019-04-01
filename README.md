@@ -1,9 +1,4 @@
 # Docs & Info
 
-## Linux Info
-
-[Citeste documentatia](linux/README.md)
-
-## Frontend Info
-
-[Citeste documentatia](frontend/README.md)
+## [Linux Info](linux/README.md)
+## [Frontend Info](frontend/README.md)
