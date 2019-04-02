@@ -1,0 +1,22 @@
+{
+  "name": "colectie",
+  "version": "1.0.0",
+  "description": "Frontend Related Stuff",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Valik4444/practica.git"
+  },
+  "author": "Valik4444",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Valik4444/practica/issues"
+  },
+  "homepage": "https://github.com/Valik4444/practica#readme",
+  "devDependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
