@@ -104,7 +104,8 @@
             $(xml).find('Valute').each(function(){
               var CharCode = $(this).find('CharCode').text();
               if ((CharCode == "EUR") || (CharCode == "USD") || (CharCode == "RUB") || (CharCode == "RON")) {
-                console.log(CharCode);
+                var Value = $(this).find('Value').text();
+                console.log(CharCode + ': ' + Value);
               }
             });
             //console.log(xml);
