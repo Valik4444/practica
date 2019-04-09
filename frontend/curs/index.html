@@ -106,6 +106,9 @@
               if ((CharCode == "EUR") || (CharCode == "USD") || (CharCode == "RUB") || (CharCode == "RON")) {
                 var Value = $(this).find('Value').text();
                 console.log(CharCode + ': ' + Value);
+                if (CharCode == "EUR") {
+                  $("#curs_EUR").val(Value);
+                }
               }
             });
             //console.log(xml);
