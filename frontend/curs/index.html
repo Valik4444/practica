@@ -96,7 +96,15 @@
     <script type="text/javascript">
       $(document).ready(function()
       {
-        console.log("doc ready");
+        $.ajax({
+          type: "GET",
+          url: "http://bnm.md/ro/official_exchange_rates?get_xml=1&date=09.04.2019",
+          dataType: "xml",
+          success: function(xml) {
+            console.log(xml);
+          }
+      });
+        //console.log("doc ready");
       });
     </script>
   </body>
