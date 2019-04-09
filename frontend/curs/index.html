@@ -101,7 +101,11 @@
           url: "https://cors-anywhere.herokuapp.com/http://bnm.md/ro/official_exchange_rates?get_xml=1&date=09.04.2019",
           dataType: "xml",
           success: function(xml) {
-            console.log(xml);
+            $(xml).find('Valute').each(function(){
+              var CharCode = $(this).find('CharCode').text();
+              console.log(CharCode);
+            });
+            //console.log(xml);
           }
       });
         //console.log("doc ready");
