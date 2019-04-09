@@ -103,7 +103,9 @@
           success: function(xml) {
             $(xml).find('Valute').each(function(){
               var CharCode = $(this).find('CharCode').text();
-              console.log(CharCode);
+              if ((CharCode == "EUR") || (CharCode == "USD") || (CharCode == "RUB") || (CharCode == "RON")) {
+                console.log(CharCode);
+              }
             });
             //console.log(xml);
           }
