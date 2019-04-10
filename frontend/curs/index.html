@@ -96,6 +96,12 @@
     <script type="text/javascript">
       $(document).ready(function()
       {
+        function populateData() {
+          console.log("populateData executed");
+        }
+
+        var selectedValue = [];
+
         $.ajax({
           type: "GET",
           url: "https://bnm.md/ro/official_exchange_rates?get_xml=1&date=09.04.2019",
@@ -105,16 +111,30 @@
               var CharCode = $(this).find('CharCode').text();
               if ((CharCode == "EUR") || (CharCode == "USD") || (CharCode == "RUB") || (CharCode == "RON")) {
                 var Value = $(this).find('Value').text();
-                console.log(CharCode + ': ' + Value);
+
+                var arrayItem = [];
+                arrayItem["CharCode"] = CharCode;
+                arrayItem["Value"] = Value;
+                selectedValue.push(arrayItem);
+
+                //console.log(CharCode + ': ' + Value);
+                /*
                 if (CharCode == "EUR") {
                   $("#curs_EUR").val(Value);
                 }
+                */
               }
             });
+
+            console.log("Date dupa succes");
+            console.log(selectedValue);
             // log all XML remote data
             //console.log(xml);
           }
       });
+
+      console.log("Date in afara functiei AJAX");
+      console.log(selectedValue);
         // log all IF doc ready remote data
         //console.log("doc ready");
       });
