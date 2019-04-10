@@ -103,9 +103,17 @@
             var elID = $(this).attr('id');
             //console.log(elID);
             if (elID.indexOf("USD") >= 0) {
-              $("#curs_USD").val(Value);
+              $("#curs_USD").val(datas.USD);
             }
-
+            if (elID.indexOf("EUR") >= 0) {
+              $("#curs_EUR").val(datas.EUR);
+            }
+            if (elID.indexOf("RUB") >= 0) {
+              $("#curs_RUB").val(datas.RUB);
+            }
+            if (elID.indexOf("RON") >= 0) {
+              $("#curs_RON").val(datas.RON);
+            }
           });
 
         }
