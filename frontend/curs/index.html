@@ -110,7 +110,7 @@
 
         }
 
-        var selectedValue = [];
+        var selectedValue = {};
 
         $.ajax({
           type: "GET",
@@ -122,10 +122,7 @@
               if ((CharCode == "EUR") || (CharCode == "USD") || (CharCode == "RUB") || (CharCode == "RON")) {
                 var Value = $(this).find('Value').text();
 
-                var arrayItem = [];
-                arrayItem["CharCode"] = CharCode;
-                arrayItem["Value"] = Value;
-                selectedValue[CharCode].push(Value);
+                selectedValue[ CharCode ] = Value;
 
                 //console.log(CharCode + ': ' + Value);
                 /*
