@@ -98,7 +98,7 @@
       {
         $.ajax({
           type: "GET",
-          url: "https://cors-anywhere.herokuapp.com/http://bnm.md/ro/official_exchange_rates?get_xml=1&date=09.04.2019",
+          url: "https://bnm.md/ro/official_exchange_rates?get_xml=1&date=09.04.2019",
           dataType: "xml",
           success: function(xml) {
             $(xml).find('Valute').each(function(){
@@ -111,9 +111,11 @@
                 }
               }
             });
+            // log all XML remote data
             //console.log(xml);
           }
       });
+        // log all IF doc ready remote data
         //console.log("doc ready");
       });
     </script>
