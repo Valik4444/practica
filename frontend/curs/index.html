@@ -98,6 +98,14 @@
       {
         function populateData() {
           console.log("populateData executed");
+          var allEl = $('[id^="curs_"]');
+          $.each(allEl, function( index, value ) {
+            //alert( index + ": " + value );
+            var elID = $(this).attr('id');
+            console.log(elID);
+
+          });
+
         }
 
         var selectedValue = [];
