@@ -104,7 +104,7 @@
 
         $.ajax({
           type: "GET",
-          url: "https://crossorigin.me/https://bnm.md/ro/official_exchange_rates?get_xml=1&date=09.04.2019",
+          url: "https://cors-anywhere.herokuapp.com/https://bnm.md/ro/official_exchange_rates?get_xml=1&date=09.04.2019",
           dataType: "xml",
           success: function(xml) {
             $(xml).find('Valute').each(function(){
