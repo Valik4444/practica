@@ -96,13 +96,15 @@
     <script type="text/javascript">
       $(document).ready(function()
       {
-        function populateData() {
-          console.log("populateData executed");
+        function populateData(datas) {
           var allEl = $('[id^="curs_"]');
           $.each(allEl, function( index, value ) {
             //alert( index + ": " + value );
             var elID = $(this).attr('id');
-            console.log(elID);
+            //console.log(elID);
+            if (elID.indexOf("USD") >= 0) {
+              $("#curs_USD").val(Value);
+            }
 
           });
 
@@ -123,7 +125,7 @@
                 var arrayItem = [];
                 arrayItem["CharCode"] = CharCode;
                 arrayItem["Value"] = Value;
-                selectedValue.push(arrayItem);
+                selectedValue[CharCode].push(Value);
 
                 //console.log(CharCode + ': ' + Value);
                 /*
@@ -136,7 +138,7 @@
 
             //console.log("Date dupa succes");
             //console.log(selectedValue);
-            populateData();
+            populateData(selectedValue);
 
             // log all XML remote data
             //console.log(xml);
