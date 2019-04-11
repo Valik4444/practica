@@ -118,14 +118,19 @@
 
         }
 
-        var selectedValue = {};
+        function GetDataFromUninorte(successCallback, errorCallback) {
+            $.ajax({
+              type: "GET",
+              url: "https://cors-anywhere.herokuapp.com/https://bnm.md/ro/official_exchange_rates?get_xml=1&date=10.04.2019",
+              dataType: "xml",
+              success: mySuccessCallback,
+              error: myErrorCallback
+            });
+        }
 
-        $.ajax({
-          type: "GET",
-          url: "https://cors-anywhere.herokuapp.com/https://bnm.md/ro/official_exchange_rates?get_xml=1&date=10.04.2019",
-          dataType: "xml",
-          success: function(xml) {
-            $(xml).find('Valute').each(function(){
+        function mySuccessCallback(successResponse) {
+            console.log('callback:success', successResponse);
+            $(successResponse).find('Valute').each(function(){
               var CharCode = $(this).find('CharCode').text();
               if ((CharCode == "EUR") || (CharCode == "USD") || (CharCode == "RUB") || (CharCode == "RON")) {
                 var Value = $(this).find('Value').text();
@@ -144,14 +149,17 @@
             //console.log("Date dupa succes");
             console.log(selectedValue);
             populateData(selectedValue);
+        }
+        function myErrorCallback(successResponse) {
+            console.log('callback:success', successResponse);
+        }
+        // GetDataFromUninorte(mySuccessCallback, myErrorCallback);
 
-            // log all XML remote data
-            //console.log(xml);
-          },
-          error: function(error){
-            console.log(error);
-          }
-      });
+
+        var selectedValue = {};
+        GetDataFromUninorte(mySuccessCallback, myErrorCallback);
+
+        
         // log all IF doc ready remote data
         //console.log("doc ready");
       });
