@@ -162,10 +162,11 @@
         // ia datele de la BNM
         function GetDataFromUninorte(successCallback, errorCallback) {
             $('html').LoadingOverlay("show");
-            var d = new Date();
-            var month = d.getMonth()+1;
-            var day = d.getDate();
-            var year = d.getFullYear();
+
+            var currentDate = new Date();
+            var month=((currentDate.getMonth()+1)>=10)? (currentDate.getMonth()+1) : '0' + (currentDate.getMonth()+1);  
+            var day=((currentDate.getDate())>=10)? (currentDate.getDate()) : '0' + (currentDate.getDate());
+            var year = currentDate.getFullYear();
 
             var cursDate = day + "." + month + "." + year;
 
