@@ -93,6 +93,7 @@
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../node_modules/gasparesganga-jquery-loading-overlay/dist/loadingoverlay.min.js"></script>    
     <script type="text/javascript">
       $(document).ready(function()
       {
@@ -119,6 +120,7 @@
         }
 
         function GetDataFromUninorte(successCallback, errorCallback) {
+            $('html').LoadingOverlay("show");
             $.ajax({
               type: "GET",
               url: "https://cors-anywhere.herokuapp.com/https://bnm.md/ro/official_exchange_rates?get_xml=1&date=10.04.2019",
@@ -149,6 +151,7 @@
             //console.log("Date dupa succes");
             console.log(selectedValue);
             populateData(selectedValue);
+            $('html').LoadingOverlay("hide");
         }
         function myErrorCallback(successResponse) {
             console.log('callback:success', successResponse);
