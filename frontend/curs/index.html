@@ -139,19 +139,13 @@
 
                 selectedValue[ CharCode ] = Value;
 
-                //console.log(CharCode + ': ' + Value);
-                /*
-                if (CharCode == "EUR") {
-                  $("#curs_EUR").val(Value);
-                }
-                */
               }
             });
 
             //console.log("Date dupa succes");
             console.log(selectedValue);
             populateData(selectedValue);
-            $('html').LoadingOverlay("hide");
+            $('html').LoadingOverlay("hide", true);
         }
         function myErrorCallback(successResponse) {
             console.log('callback:success', successResponse);
