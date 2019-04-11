@@ -94,6 +94,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../node_modules/gasparesganga-jquery-loading-overlay/dist/loadingoverlay.min.js"></script>    
+    <script src="../node_modules/localforage/dist/localforage.min.js"></script>      
     <script type="text/javascript">
       $(document).ready(function()
       {
@@ -145,6 +146,15 @@
             //console.log("Date dupa succes");
             console.log(selectedValue);
             populateData(selectedValue);
+            localforage.setItem('cursValutar', successResponse).then(function (value) {
+                // Do other things once the value has been saved.
+                console.log('Cache local salvat');
+                console.log(value);
+            }).catch(function(err) {
+                // This code runs if there were any errors
+                console.log('Cache local - eroare la salvare');
+                console.log(err);
+            });
             $('html').LoadingOverlay("hide", true);
         }
         function myErrorCallback(successResponse) {
@@ -155,7 +165,18 @@
 
 
         var selectedValue = {};
-        GetDataFromUninorte(mySuccessCallback, myErrorCallback);
+
+        localforage.getItem('cursValutar').then(function(value) {
+            // This code runs once the value has been loaded
+            // from the offline store.
+            console.log('Datele in cache exista');
+            console.log(value);
+        }).catch(function(err) {
+            // This code runs if there were any errors
+            console.log('Datele in cache NU exista.Le luam de la BNM...');
+            console.log(err);
+            GetDataFromUninorte(mySuccessCallback, myErrorCallback);
+        });
 
         
         // log all IF doc ready remote data
