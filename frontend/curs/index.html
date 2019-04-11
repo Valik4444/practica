@@ -98,7 +98,42 @@
     <script type="text/javascript">
       $(document).ready(function()
       {
-        function populateData(datas) {
+        function XMLToString(oXML)
+        {
+         //code for IE
+         if (window.ActiveXObject) {
+         var oString = oXML.xml; return oString;
+         } 
+         // code for Chrome, Safari, Firefox, Opera, etc.
+         else {
+         return (new XMLSerializer()).serializeToString(oXML);
+         }
+         }
+
+        function StringToXML(oString) {
+         //code for IE
+         if (window.ActiveXObject) { 
+         var oXML = new ActiveXObject("Microsoft.XMLDOM"); oXML.loadXML(oString);
+         return oXML;
+         }
+         // code for Chrome, Safari, Firefox, Opera, etc. 
+         else {
+         return (new DOMParser()).parseFromString(oString, "text/xml");
+         }
+        }
+        function populateData(info) {
+          $(info).find('Valute').each(function(){
+              var CharCode = $(this).find('CharCode').text();
+              if ((CharCode == "EUR") || (CharCode == "USD") || (CharCode == "RUB") || (CharCode == "RON")) {
+                var Value = $(this).find('Value').text();
+
+                selectedValue[ CharCode ] = Value;
+
+              }
+            });
+
+          var datas = selectedValue;
+
           var allEl = $('[id^="curs_"]');
           $.each(allEl, function( index, value ) {
             //alert( index + ": " + value );
@@ -133,19 +168,10 @@
 
         function mySuccessCallback(successResponse) {
             console.log('callback:success', successResponse);
-            $(successResponse).find('Valute').each(function(){
-              var CharCode = $(this).find('CharCode').text();
-              if ((CharCode == "EUR") || (CharCode == "USD") || (CharCode == "RUB") || (CharCode == "RON")) {
-                var Value = $(this).find('Value').text();
+            
+            populateData(successResponse);
 
-                selectedValue[ CharCode ] = Value;
-
-              }
-            });
-
-            //console.log("Date dupa succes");
-            console.log(selectedValue);
-            populateData(selectedValue);
+            successResponse = XMLToString(successResponse);
             localforage.setItem('cursValutar', successResponse).then(function (value) {
                 // Do other things once the value has been saved.
                 console.log('Cache local salvat');
@@ -172,6 +198,9 @@
             console.log('Datele in cache exista');
             if (value == null) {
               GetDataFromUninorte(mySuccessCallback, myErrorCallback);
+            } else {
+              value = StringToXML(value)
+              populateData(value);
             }
             console.log(value);
         }).catch(function(err) {
