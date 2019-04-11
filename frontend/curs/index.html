@@ -98,6 +98,7 @@
     <script type="text/javascript">
       $(document).ready(function()
       {
+        // transforma datele din XML in text
         function XMLToString(oXML)
         {
          //code for IE
@@ -110,6 +111,7 @@
          }
          }
 
+         // transforma datele din TEXT in xml
         function StringToXML(oString) {
          //code for IE
          if (window.ActiveXObject) { 
@@ -121,6 +123,8 @@
          return (new DOMParser()).parseFromString(oString, "text/xml");
          }
         }
+
+        // POPULEAZA FORMULARUL html CU DATELE FILTRAE SI PROCESATE
         function populateData(info) {
           $(info).find('Valute').each(function(){
               var CharCode = $(this).find('CharCode').text();
@@ -155,17 +159,27 @@
 
         }
 
+        // ia datele de la BNM
         function GetDataFromUninorte(successCallback, errorCallback) {
             $('html').LoadingOverlay("show");
+            var d = new Date();
+            var month = d.getMonth()+1;
+            var day = d.getDate();
+            var year = d.getFullYear();
+
+            var cursDate = day + "." + month + "." + year;
+
+            var url = "https://cors-anywhere.herokuapp.com/https://bnm.md/ro/official_exchange_rates?get_xml=1&date=" + cursDate;
             $.ajax({
               type: "GET",
-              url: "https://cors-anywhere.herokuapp.com/https://bnm.md/ro/official_exchange_rates?get_xml=1&date=10.04.2019",
+              url: url,
               dataType: "xml",
               success: mySuccessCallback,
               error: myErrorCallback
             });
         }
 
+        // prelucreaza datele BNM daca succes
         function mySuccessCallback(successResponse) {
             console.log('callback:success', successResponse);
             
@@ -183,6 +197,8 @@
             });
             $('html').LoadingOverlay("hide", true);
         }
+
+        // prelucreaza datele BNM daca eroare
         function myErrorCallback(successResponse) {
             console.log('callback:success', successResponse);
             GetDataFromUninorte(mySuccessCallback, myErrorCallback);
@@ -199,7 +215,7 @@
             if (value == null) {
               GetDataFromUninorte(mySuccessCallback, myErrorCallback);
             } else {
-              value = StringToXML(value)
+              value = StringToXML(value);
               populateData(value);
             }
             console.log(value);
