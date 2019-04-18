@@ -217,6 +217,10 @@
               GetDataFromUninorte(mySuccessCallback, myErrorCallback);
             } else {
               value = StringToXML(value);
+              
+              var $doc = $.parseXML(value);
+              console.log($($doc).find('ValCurs').attr('Date'))
+              
               console.log(value);
               populateData(value);
             }
