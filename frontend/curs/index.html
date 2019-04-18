@@ -94,7 +94,8 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="../node_modules/gasparesganga-jquery-loading-overlay/dist/loadingoverlay.min.js"></script>    
-    <script src="../node_modules/localforage/dist/localforage.min.js"></script>      
+    <script src="../node_modules/localforage/dist/localforage.min.js"></script>
+    <script src="https://defijs.github.io/defi/defi.min.js"></script>
     <script type="text/javascript">
       $(document).ready(function()
       {
@@ -243,6 +244,29 @@
             console.log('Datele in cache NU exista.Le luam de la BNM...');
             console.log(err);
             GetDataFromUninorte(mySuccessCallback, myErrorCallback);
+        });
+
+        // default data
+        const obj = {
+          mdl: '',
+          usd: '',
+          eur: '',
+          rub: '',
+          ron: ''
+        };
+
+        defi.on(obj, 'change:mdl', () => console.log('MDL s-a modificat'));
+        defi.on(obj, 'change:usd', () => console.log('USD s-a modificat'));
+        defi.on(obj, 'change:eur', () => console.log('EUR s-a modificat'));
+        defi.on(obj, 'change:rub', () => console.log('RUB s-a modificat'));
+        defi.on(obj, 'change:ron', () => console.log('RON s-a modificat'));
+
+        defi.bindNode(obj, {
+          mdl: '#curs_MDL',
+          usd: '#curs_USD',
+          eur: '#curs_EUR',
+          rub: '#curs_RUB',
+          ron: '#curs_RON'
         });
         
         // log all IF doc ready remote data
