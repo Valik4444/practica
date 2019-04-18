@@ -216,9 +216,11 @@
             if (value == null) {
               GetDataFromUninorte(mySuccessCallback, myErrorCallback);
             } else {
+              
+              var string = value;
               value = StringToXML(value);
               
-              var $doc = $.parseXML(value);
+              var $doc = $.parseXML(string);
               console.log($($doc).find('ValCurs').attr('Date'))
               
               console.log(value);
