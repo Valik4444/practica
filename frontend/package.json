@@ -17,6 +17,11 @@
   },
   "homepage": "https://github.com/Valik4444/practica#readme",
   "devDependencies": {
-    "bootstrap": "^3.3.7"
-  }
+    "bootstrap": "^3.3.7",
+    "defi": "0.0.38",
+    "gasparesganga-jquery-loading-overlay": "^2.1.6",
+    "jquery": "^3.3.1",
+    "localforage": "^1.7.3"
+  },
+  "dependencies": {}
 }
