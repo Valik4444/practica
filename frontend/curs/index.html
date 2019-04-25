@@ -206,6 +206,22 @@
             GetDataFromUninorte(mySuccessCallback, myErrorCallback);
         }
         // GetDataFromUninorte(mySuccessCallback, myErrorCallback);
+        // 
+        function mdlToValute(curs) {
+          var resultUSD = parseInt(curs, 10) / parseInt(selectedValue.USD, 10);
+          var resultEUR = parseInt(curs, 10) / parseInt(selectedValue.EUR, 10);
+          var resultRON = parseInt(curs, 10) / parseInt(selectedValue.RON, 10);
+          var resultRUB = parseInt(curs, 10) / parseInt(selectedValue.RUB, 10);
+
+          $("#curs_USD").val(resultUSD);
+          $("#curs_EUR").val(resultEUR);
+          $("#curs_RON").val(resultRON);
+          $("#curs_RUB").val(resultRUB);
+        }
+
+        function valuteToMdl() {
+          
+        }
 
 
         var selectedValue = {};
@@ -256,11 +272,14 @@
         };
 
         defi.on(obj, 'change:mdl', () => {
+          mdlToValute(obj.mdl);
+          /*
           var modifiedValute = obj.mdl;
           var result = parseInt(modifiedValute, 10) / parseInt(selectedValue.USD, 10);
           $("#curs_USD").val(result);
+          */
         });
-        
+
         defi.on(obj, 'change:usd', () => console.log('USD s-a modificat'));
         defi.on(obj, 'change:eur', () => console.log('EUR s-a modificat'));
         defi.on(obj, 'change:rub', () => console.log('RUB s-a modificat'));
