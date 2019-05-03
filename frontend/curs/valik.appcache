@@ -1,0 +1,20 @@
+CACHE MANIFEST
+# 2019-05-03:v7
+
+CACHE:
+https://valik.studiotechno.md/node_modules/bootstrap/dist/css/bootstrap.min.css
+https://cdn.jsdelivr.net/npm/flag-icon-css@3.3.0/css/flag-icon.min.css
+https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js
+https://oss.maxcdn.com/respond/1.4.2/respond.min.js
+background.png
+style.css
+https://valik.studiotechno.md/node_modules/jquery/dist/jquery.min.js
+https://valik.studiotechno.md/node_modules/bootstrap/dist/js/bootstrap.min.js
+https://valik.studiotechno.md/node_modules/gasparesganga-jquery-loading-overlay/dist/loadingoverlay.min.js
+https://valik.studiotechno.md/node_modules/localforage/dist/localforage.min.js
+https://defijs.github.io/defi/defi.min.js
+app.js
+
+# Resources that require the user to be online.
+NETWORK:
+*
